@@ -20,7 +20,7 @@ function callAlchemy(url) {
 function callEmbedly(url) {
     $.ajax({
         type: 'GET',
-        url: 'https://api.embed.ly/1/oembed'+
+        url: 'https://api.embed.ly/1/extract'+
              '?url='+encodeURI(url)+
              '&key=d16b64773ea44778a3542f84f8020ce7',
         success: function(data) {
