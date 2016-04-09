@@ -47,6 +47,12 @@ end
 #   end
 # end
 
+# namespace :assets do
+#   task :precompile do
+#     sh 'middleman build'
+#   end
+# end
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
@@ -62,7 +68,7 @@ configure :build do
   activate :minify_javascript
 
   # Enable cache buster
-  # activate :asset_hash
+  activate :asset_hash
 
   # Use relative URLs
   # activate :relative_assets
@@ -70,3 +76,6 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
+
+# silence i18n warning
+::I18n.config.enforce_available_locales = false
