@@ -9,13 +9,15 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title %></title>
 
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag "all" %>
     <%= javascript_include_tag  "all" %>
     <link href='https://fonts.googleapis.com/css?family=Chivo:400,900' rel='stylesheet' type='text/css'>
-    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
   </head>
   <body class="<%= page_classes %>">
     <%= partial "header" %>
     <%= yield %>
+    <%= partial "form" %>
   </body>
 </html>
