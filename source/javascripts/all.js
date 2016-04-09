@@ -23,21 +23,21 @@ function fillEmotionData(elem, data) {
     var disgustVal = data['disgust'] * 100;
 
     var highest = 'anger';
-    var highestVal = data['anger'];
+    var highestVal = angerVal;
 
-    if (data['sadness'] > highestVal) {
+    if (sadnessVal > highestVal) {
       highest = 'sadness';
     }
 
-    if (data['fear'] > highestVal) {
+    if (fearVal > highestVal) {
       highest = 'fear';
     }
 
-    if (data['joy'] > highestVal) {
+    if (joyVal > highestVal) {
       highest = 'joy';
     }
 
-    if (data['disgust'] > highestVal) {
+    if (disgustVal > highestVal) {
       highest = 'disgust';
     }
 
