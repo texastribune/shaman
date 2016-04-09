@@ -24,7 +24,31 @@ body {
   }
 }
 
+.story-form {
+  clear: both;
+}
+
+.story-embed {
+  float: left;
+  width: 50%;
+}
+
 .story-emotions {
-  height: 100px;
-  width: 200px;
+  float: left;
+  width: 50%;
+  .anger {
+    background-color: $anger;
+  }
+  .fear {
+    background-color: $fear;
+  }
+  .disgust {
+    background-color: $disgust;
+  }
+  .sadness {
+    background-color: $sadness;
+  }
+  .joy {
+    background-color: $joy;
+  }
 }

@@ -13,43 +13,45 @@ function fillEmotionData(elem, data) {
     var angerColor = '#f13a07';
     var disgustColor = '#7dbc40';
 
-    var highest = 'anger';
+    // anger
+    var angerElem = $(elem).find('.anger');
+    var angerVal = data['anger'];
+    var angerHeight = angerVal * 200;
 
-    if (data['disgust'] > highest) {
-      highest = 'disgust';
-    }
+    angerElem.css('height', angerHeight);
+    angerElem.css('width', '100%');
 
-    if (data['fear'] > highest) {
-      highest = 'fear';
-    }
+    // sadness
+    var sadnessElem = $(elem).find('.sadness');
+    var sadnessVal = data['sadness'];
+    var sadnessHeight = sadnessVal * 200;
 
-    if (data['joy'] > highest) {
-      highest = 'joy';
-    }
+    sadnessElem.css('height', sadnessHeight);
+    sadnessElem.css('width', '100%');
 
-    if (data['sadness'] > highest) {
-      highest = 'sadness';
-    }
+    // fear
+    var fearElem = $(elem).find('.fear');
+    var fearVal = data['fear'];
+    var fearHeight = fearVal * 200;
 
-    if (highest == 'anger') {
-      elem.css('background-color', angerColor);
-    }
+    fearElem.css('height', fearHeight);
+    fearElem.css('width', '100%');
 
-    if (highest == 'fear') {
-      elem.css('background-color', fearColor);
-    }
+    // joy
+    var joyElem = $(elem).find('.joy');
+    var joyVal = data['joy'];
+    var joyHeight = joyVal * 200;
 
-    if (highest == 'sadness') {
-      elem.css('background-color', sadnessColor);
-    }
+    joyElem.css('height', joyHeight);
+    joyElem.css('width', '100%');
 
-    if (highest == 'anger') {
-      elem.css('background-color', angerColor);
-    }
+    // disgust
+    var disgustElem = $(elem).find('.disgust');
+    var disgustVal = data['disgust'];
+    var disgustHeight = disgustVal * 200;
 
-    if (highest == 'disgust') {
-      elem.css('background-color', disgustColor);
-    }
+    disgustElem.css('height', disgustHeight);
+    disgustElem.css('width', '100%');
 
 
     // example: {anger: 0.717459, disgust: 0.537376,
