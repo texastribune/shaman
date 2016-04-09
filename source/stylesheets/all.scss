@@ -30,14 +30,31 @@ form {
 }
 
 .mood-wrapper {
-  border-top: 3px solid black;
+  background-color: #f8f7f5;
+  padding: 1em;
+  width: 100%;
   .mood {
     height: 200px;
-    width: 400px;
+    width: 50%;
     p {
       font-size: 6em;
       margin: 0;
     }
+  }
+}
+
+.emotion-series {
+  clear: both;
+  div {
+    height: 200px;
+    text-align: center;
+    width: 50%;
+  }
+  p {
+    color: white;
+    font-size: 4em;
+    margin: 0;
+    text-transform: uppercase;
   }
 }
 

@@ -49,9 +49,9 @@ function fillEmotionData(elem, data) {
     var gradientElem = $(elem).find('.gradient');
     var overallElem = $(elem).find('.story-emotion-overall');
 
-    overallElem.html('<h3>Overall Story Feeling</h3><div class="' + highest + '"><p>' + highest + '</p></div>');
+    overallElem.html('<h3>Story Mood</h3><div class="' + highest + '"><p>' + highest + '</p></div>');
 
-    $('<h3>Story Feeling Breakdown</h3>').insertBefore(gradientElem);
+    $('<h3>Story Aura</h3>').insertBefore(gradientElem);
     gradientElem.css('height', '100px');
     gradientElem.css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyVal + '%, ' + disgustColor + ' ' + disgustVal + '%, ' + fearColor + ' ' + fearVal + '%, ' + sadnessColor + ' ' + sadnessVal + '%, ' + angerColor + ' ' + angerVal + '%)');
     $('<div class="emotion-labels"><div class="joy"></div><p>JOY</p></div><div class="emotion-labels"><div class="fear"></div><p>FEAR</p></div><div class="emotion-labels"><div class="sadness"></div><p>SADNESS</p></div><div class="emotion-labels"><div class="anger"></div><p>ANGER</p></div><div class="emotion-labels"><div class="disgust"></div><p>DISGUST</p></div>').insertAfter(gradientElem);
@@ -130,6 +130,27 @@ function updateOverallMood() {
         fearTotal += $(this).data('fear');
         disgustTotal += $(this).data('disgust')
     });
+
+    var highest = 'anger';
+
+    if (sadnessTotal > highest) {
+      highest = 'sadness';
+    }
+
+    if (fearTotal > highest) {
+      highest = 'fear';
+    }
+
+    if (joyTotal > highest) {
+      highest = 'joy';
+    }
+
+    if (disgustTotal > highest) {
+      highest = 'disgust';
+    }
+
+    $('.emotion-series').html('<h2>Overall Series Mood</h2><div class="' + highest + '"><p>' + highest + '</p></div>');
+
 
     $('.mood').text('');
     $('.mood').css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyTotal/storyTotal + '%, ' + disgustColor + ' ' + disgustTotal/storyTotal + '%, ' + fearColor + ' ' + fearTotal/storyTotal + '%, ' + sadnessColor + ' ' + sadnessTotal/storyTotal + '%, ' + angerColor + ' ' + angerTotal/storyTotal + '%)');
