@@ -33,12 +33,12 @@ function fillEmotionData(elem, data) {
       highest = 'fear';
     }
 
-    if (joyVal > highestVal) {
-      highest = 'joy';
-    }
-
     if (disgustVal > highestVal) {
       highest = 'disgust';
+    }
+
+    if (joyVal > highestVal) {
+      highest = 'joy';
     }
 
     $(elem).data('anger', angerVal);
@@ -70,7 +70,7 @@ function callAlchemy(elem, url) {
         success: function(data) {
             var newEmotions = {};
             Object.keys(data.docEmotions).map(function(key) {
-                newEmotions[key] = parseFloat(data.docEmotions[key])
+                newEmotions[key] = parseFloat(data.docEmotions[key]);
             });
             fillEmotionData(elem, newEmotions);
         }
@@ -129,7 +129,7 @@ function updateOverallMood() {
         joyTotal += $(this).data('joy');
         sadnessTotal += $(this).data('sadness');
         fearTotal += $(this).data('fear');
-        disgustTotal += $(this).data('disgust')
+        disgustTotal += $(this).data('disgust');
     });
 
     var highest = 'anger';
@@ -159,6 +159,6 @@ function updateOverallMood() {
 }
 
 $(document).ready(function() {
-    $(document).on('change', '.urlinput', populateEmbedOnInputChange)
-    $('#btn-add-url').on('click', addInputLineOnClick)
-})
+    $(document).on('change', '.urlinput', populateEmbedOnInputChange);
+    $('#btn-add-url').on('click', addInputLineOnClick);
+});
