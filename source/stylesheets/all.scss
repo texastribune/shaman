@@ -30,15 +30,25 @@ form {
 }
 
 .mood-wrapper {
+  @include outer-container;
   background-color: #f8f7f5;
-  padding: 1em;
-  width: 100%;
+  max-width: none;
   .mood {
     height: 200px;
-    width: 50%;
     p {
       font-size: 6em;
       margin: 0;
+    }
+  }
+  .series {
+    @include span-columns(6);
+    padding: 1em;
+  }
+  .shaman-wrapper {
+    @include span-columns(6);
+    padding: 1em;
+    img {
+      width: 400px;
     }
   }
 }
@@ -48,7 +58,6 @@ form {
   div {
     height: 200px;
     text-align: center;
-    width: 50%;
   }
   p {
     color: white;
