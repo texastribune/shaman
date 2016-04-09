@@ -21,7 +21,27 @@ function fillEmotionData(elem, data) {
     var joyVal = data['joy'] * 100;
     var disgustVal = data['disgust'] * 100;
 
-    $(elem).css('height', '200px');
+    var highest = 'anger';
+
+    if (data['sadness'] > highest) {
+      highest = sadness;
+    }
+
+    if (data['fear'] > highest) {
+      highest = fear;
+    }
+
+    if (data['joy'] > highest) {
+      highest = joy;
+    }
+
+    if (data['disgust'] > highest) {
+      highest = disgust;
+    }
+
+    $('.story-emotion-overall').html('<h3>Story Mood</h3><div class="' + highest + '"></div>');
+
+    $(elem).css('height', '100px');
     $(elem).css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyVal + '%, ' + disgustColor + ' ' + disgustVal + '%, ' + fearColor + ' ' + fearVal + '%, ' + sadnessColor + ' ' + sadnessVal + '%, ' + angerColor + ' ' + angerVal + '%)');
 }
 

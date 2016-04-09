@@ -47,23 +47,39 @@ form {
   width: 50%;
 }
 
+.story-emotion-overall {
+  float: left;
+  width: 50%;
+  h3 {
+    float: left;
+    margin: 0;
+    width: 50%;
+  }
+  div {
+    float: left;
+    height: 50px;
+    width: 200px;
+  }
+}
+
+.anger {
+  background-color: $anger;
+}
+.fear {
+  background-color: $fear;
+}
+.disgust {
+  background-color: $disgust;
+}
+.sadness {
+  background-color: $sadness;
+}
+.joy {
+  background-color: $joy;
+}
+
 .story-emotions {
   float: left;
   margin: 1em 0;
   width: 50%;
-  .anger {
-    background-color: $anger;
-  }
-  .fear {
-    background-color: $fear;
-  }
-  .disgust {
-    background-color: $disgust;
-  }
-  .sadness {
-    background-color: $sadness;
-  }
-  .joy {
-    background-color: $joy;
-  }
 }
