@@ -13,7 +13,6 @@ function fillEmotionData(elem, data) {
     var angerColor = '#f13a07';
     var disgustColor = '#7dbc40';
 
-    console.log(elem, data);
     var highest = 'anger';
 
     if (data['disgust'] > highest) {
@@ -33,7 +32,6 @@ function fillEmotionData(elem, data) {
     }
 
     if (highest == 'anger') {
-      console.log('hello');
       elem.css('background-color', angerColor);
     }
 
