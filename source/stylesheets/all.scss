@@ -12,6 +12,10 @@ body {
   font-family: 'Chivo', sans-serif;
 }
 
+form {
+  padding: 1em;
+}
+
 .mood-wrapper {
   border-top: 3px solid black;
   .mood {
@@ -26,15 +30,26 @@ body {
 
 .story-form {
   clear: both;
+  margin-top: 1em;
+  input {
+    border: 1px solid black;
+    height: 30px;
+    width: 50%;
+  }
+  label {
+    font-size: 1.2em;
+  }
 }
 
 .story-embed {
   float: left;
+  padding: 1em 0;
   width: 50%;
 }
 
 .story-emotions {
   float: left;
+  margin: 1em 0;
   width: 50%;
   .anger {
     background-color: $anger;
