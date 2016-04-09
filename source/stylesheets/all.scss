@@ -54,12 +54,20 @@ form {
   h3 {
     float: left;
     margin: 0;
+    text-transform: uppercase;
     width: 50%;
   }
   div {
     float: left;
-    height: 50px;
+    text-align: center;
     width: 50%;
+    p {
+      color: white;
+      font-size: 2em;
+      margin: 0;
+      padding: 1em;
+      text-transform: uppercase;
+    }
   }
 }
 
