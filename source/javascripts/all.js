@@ -22,6 +22,8 @@ function fillEmotionData(elem, data) {
     var joyVal = data['joy'] * 100;
     var disgustVal = data['disgust'] * 100;
 
+    var totalEmotions = angerVal + sadnessVal + fearVal + joyVal + disgustVal;
+
     var highest = 'anger';
     var highestVal = angerVal;
 
@@ -41,6 +43,15 @@ function fillEmotionData(elem, data) {
       highest = 'joy';
     }
 
+    // Make the emotions altogether total closer to 100 for gradient
+    var emotionDiff = 100 - totalEmotions;
+    var amountToAdd = emotionDiff / 5;
+    var angerPercent = angerVal + amountToAdd;
+    var sadnessPercent = sadnessVal + amountToAdd;
+    var fearPercent = fearVal + amountToAdd;
+    var joyPercent = joyVal + amountToAdd;
+    var disgustPercent = disgustVal + amountToAdd;
+
     $(elem).data('anger', angerVal);
     $(elem).data('sadness', sadnessVal);
     $(elem).data('fear', fearVal);
@@ -54,7 +65,7 @@ function fillEmotionData(elem, data) {
 
     $('<h3>Story Aura</h3>').insertBefore(gradientElem);
     gradientElem.css('height', '100px');
-    gradientElem.css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyVal + '%, ' + disgustColor + ' ' + disgustVal + '%, ' + fearColor + ' ' + fearVal + '%, ' + sadnessColor + ' ' + sadnessVal + '%, ' + angerColor + ' ' + angerVal + '%)');
+    gradientElem.css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyPercent + '%, ' + disgustColor + ' ' + disgustPercent + '%, ' + fearColor + ' ' + fearPercent + '%, ' + sadnessColor + ' ' + sadnessPercent + '%, ' + angerColor + ' ' + angerPercent + '%)');
     $('<div class="emotion-labels"><div class="joy"></div><p>JOY</p></div><div class="emotion-labels"><div class="fear"></div><p>FEAR</p></div><div class="emotion-labels"><div class="sadness"></div><p>SADNESS</p></div><div class="emotion-labels"><div class="anger"></div><p>ANGER</p></div><div class="emotion-labels"><div class="disgust"></div><p>DISGUST</p></div>').insertAfter(gradientElem);
 
     updateOverallMood();
@@ -153,9 +164,18 @@ function updateOverallMood() {
 
     $('.emotion-series').html('<h2>Overall Series Mood</h2><div class="' + highest + '"><p>' + highest + '</p></div>');
 
+    var totalEmotions = angerTotal + sadnessTotal + fearTotal + joyTotal + disgustTotal;
+
+    var emotionDiff = 100 - totalEmotions;
+    var amountToAdd = emotionDiff / 5;
+    var angerPercent = angerTotal + amountToAdd;
+    var sadnessPercent = sadnessTotal + amountToAdd;
+    var fearPercent = fearTotal + amountToAdd;
+    var joyPercent = joyTotal + amountToAdd;
+    var disgustPercent = disgustTotal + amountToAdd;
 
     $('.mood').text('');
-    $('.mood').css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyTotal/storyTotal + '%, ' + disgustColor + ' ' + disgustTotal/storyTotal + '%, ' + fearColor + ' ' + fearTotal/storyTotal + '%, ' + sadnessColor + ' ' + sadnessTotal/storyTotal + '%, ' + angerColor + ' ' + angerTotal/storyTotal + '%)');
+    $('.mood').css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyPercent/storyTotal + '%, ' + disgustColor + ' ' + disgustPercent/storyTotal + '%, ' + fearColor + ' ' + fearPercent/storyTotal + '%, ' + sadnessColor + ' ' + sadnessPercent/storyTotal + '%, ' + angerColor + ' ' + angerPercent/storyTotal + '%)');
 }
 
 $(document).ready(function() {
