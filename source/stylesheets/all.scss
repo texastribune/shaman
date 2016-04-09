@@ -68,8 +68,10 @@ form {
 }
 
 .story-form {
+  border-top: 3px solid #f8f7f5;
   clear: both;
   margin-top: 1em;
+  padding: 2em 0;
   input {
     border: 1px solid black;
     height: 30px;
@@ -82,8 +84,16 @@ form {
 
 .story-embed {
   float: left;
-  padding: 1em 0;
+  font-family: 'Helvetica', sans-serif;
+  padding: 2em 0;
   width: 50%;
+  .headline-embed {
+    font-size: 1.5em;
+    padding: 0.5em 0;
+  }
+  .lede-embed {
+    padding: 0.5em 0;
+  }
 }
 
 .story-emotion-overall {
