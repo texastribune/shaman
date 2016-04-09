@@ -11,3 +11,15 @@ $disgust: #7dbc40;
 body {
   font-family: 'Chivo', sans-serif;
 }
+
+.mood-wrapper {
+  border-top: 3px solid black;
+  .mood {
+    height: 200px;
+    width: 400px;
+    p {
+      font-size: 6em;
+      margin: 0;
+    }
+  }
+}
