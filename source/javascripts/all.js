@@ -39,10 +39,14 @@ function fillEmotionData(elem, data) {
       highest = disgust;
     }
 
-    $('.story-emotion-overall').html('<h3>Story Mood</h3><div class="' + highest + '"></div>');
+    var gradientElem = $(elem).find('.gradient');
+    var overallElem = $(elem).find('.story-emotion-overall');
 
-    $(elem).css('height', '100px');
-    $(elem).css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyVal + '%, ' + disgustColor + ' ' + disgustVal + '%, ' + fearColor + ' ' + fearVal + '%, ' + sadnessColor + ' ' + sadnessVal + '%, ' + angerColor + ' ' + angerVal + '%)');
+    overallElem.html('<h3>Overall Story Feeling</h3><div class="' + highest + '"></div>');
+
+    $('<h3>Story Feeling Breakdown</h3>').insertBefore(gradientElem);
+    gradientElem.css('height', '100px');
+    gradientElem.css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyVal + '%, ' + disgustColor + ' ' + disgustVal + '%, ' + fearColor + ' ' + fearVal + '%, ' + sadnessColor + ' ' + sadnessVal + '%, ' + angerColor + ' ' + angerVal + '%)');
 }
 
 function callAlchemy(elem, url) {
