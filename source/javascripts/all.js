@@ -23,21 +23,22 @@ function fillEmotionData(elem, data) {
     var disgustVal = data['disgust'] * 100;
 
     var highest = 'anger';
+    var highestVal = data['anger'];
 
-    if (data['sadness'] > highest) {
-      highest = sadness;
+    if (data['sadness'] > highestVal) {
+      highest = 'sadness';
     }
 
-    if (data['fear'] > highest) {
-      highest = fear;
+    if (data['fear'] > highestVal) {
+      highest = 'fear';
     }
 
-    if (data['joy'] > highest) {
-      highest = joy;
+    if (data['joy'] > highestVal) {
+      highest = 'joy';
     }
 
-    if (data['disgust'] > highest) {
-      highest = disgust;
+    if (data['disgust'] > highestVal) {
+      highest = 'disgust';
     }
 
     $(elem).data('anger', angerVal);
@@ -132,20 +133,21 @@ function updateOverallMood() {
     });
 
     var highest = 'anger';
+    var highestVal = angerTotal;
 
-    if (sadnessTotal > highest) {
+    if (sadnessTotal > highestVal) {
       highest = 'sadness';
     }
 
-    if (fearTotal > highest) {
+    if (fearTotal > highestVal) {
       highest = 'fear';
     }
 
-    if (joyTotal > highest) {
+    if (joyTotal > highestVal) {
       highest = 'joy';
     }
 
-    if (disgustTotal > highest) {
+    if (disgustTotal > highestVal) {
       highest = 'disgust';
     }
 
