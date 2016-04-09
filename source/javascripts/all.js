@@ -1,5 +1,12 @@
 //= require_tree .
 
+// set up emotion colors
+var fearColor = '#df7a96';
+var joyColor = '#fff65a';
+var sadnessColor = '#095b9d';
+var angerColor = '#f13a07';
+var disgustColor = '#7dbc40';
+
 function fillEmbedData(elem, data) {
     $(elem).find('.headline-embed').text(data.title);
     $(elem).find('.image-embed').html('<img src="'+data.thumbnail_url+'" height="200" width="400" />');
@@ -7,12 +14,6 @@ function fillEmbedData(elem, data) {
 }
 
 function fillEmotionData(elem, data) {
-    // set up emotion colors
-    var fearColor = '#df7a96';
-    var joyColor = '#fff65a';
-    var sadnessColor = '#095b9d';
-    var angerColor = '#f13a07';
-    var disgustColor = '#7dbc40';
 
     // set up emotion values
     var angerVal = data['anger'] * 100;
@@ -39,6 +40,12 @@ function fillEmotionData(elem, data) {
       highest = disgust;
     }
 
+    $(elem).data('anger', angerVal);
+    $(elem).data('sadness', sadnessVal);
+    $(elem).data('fear', fearVal);
+    $(elem).data('joy', joyVal);
+    $(elem).data('disgust', disgustVal);
+
     var gradientElem = $(elem).find('.gradient');
     var overallElem = $(elem).find('.story-emotion-overall');
 
@@ -47,6 +54,8 @@ function fillEmotionData(elem, data) {
     $('<h3>Story Feeling Breakdown</h3>').insertBefore(gradientElem);
     gradientElem.css('height', '100px');
     gradientElem.css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyVal + '%, ' + disgustColor + ' ' + disgustVal + '%, ' + fearColor + ' ' + fearVal + '%, ' + sadnessColor + ' ' + sadnessVal + '%, ' + angerColor + ' ' + angerVal + '%)');
+
+    updateOverallMood();
 }
 
 function callAlchemy(elem, url) {
@@ -83,7 +92,7 @@ function populateEmbedOnInputChange() {
     callAlchemy($(this).nextAll('.story-emotions'), url);
 }
 
-function addInputLine() {
+function addInputLineOnClick() {
     $(this).prev().append(
         '<div class="story-form">'+
             '<label>Story Url</label>'+
@@ -103,7 +112,29 @@ function addInputLine() {
         '</div>');
 }
 
+function updateOverallMood() {
+    storyTotal = 0;
+    angerTotal = 0.0;
+    joyTotal = 0.0;
+    sadnessTotal = 0.0;
+    fearTotal = 0.0;
+    disgustTotal = 0.0;
+    $('.story-emotions').each(function() {
+        // assume that all future elements are empty
+        if (typeof $(this).data('anger') === 'undefined') { return false; }
+        storyTotal += 1;
+        angerTotal += $(this).data('anger');
+        joyTotal += $(this).data('joy');
+        sadnessTotal += $(this).data('sadness');
+        fearTotal += $(this).data('fear');
+        disgustTotal += $(this).data('disgust')
+    });
+
+    $('.mood').text('');
+    $('.mood').css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyTotal/storyTotal + '%, ' + disgustColor + ' ' + disgustTotal/storyTotal + '%, ' + fearColor + ' ' + fearTotal/storyTotal + '%, ' + sadnessColor + ' ' + sadnessTotal/storyTotal + '%, ' + angerColor + ' ' + angerTotal/storyTotal + '%)');
+}
+
 $(document).ready(function() {
-    $('.urlinput').on('change', populateEmbedOnInputChange)
-    $('#btn-add-url').on('click', addInputLine)
+    $(document).on('change', '.urlinput', populateEmbedOnInputChange)
+    $('#btn-add-url').on('click', addInputLineOnClick)
 })
