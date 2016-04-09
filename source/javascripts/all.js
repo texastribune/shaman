@@ -7,57 +7,22 @@ function fillEmbedData(elem, data) {
 }
 
 function fillEmotionData(elem, data) {
+    // set up emotion colors
     var fearColor = '#df7a96';
     var joyColor = '#fff65a';
     var sadnessColor = '#095b9d';
     var angerColor = '#f13a07';
     var disgustColor = '#7dbc40';
 
-    // anger
-    var angerElem = $(elem).find('.anger');
-    var angerVal = data['anger'];
-    var angerHeight = angerVal * 200;
+    // set up emotion values
+    var angerVal = data['anger'] * 100;
+    var sadnessVal = data['sadness'] * 100;
+    var fearVal = data['fear'] * 100;
+    var joyVal = data['joy'] * 100;
+    var disgustVal = data['disgust'] * 100;
 
-    angerElem.css('height', angerHeight);
-    angerElem.css('width', '100%');
-
-    // sadness
-    var sadnessElem = $(elem).find('.sadness');
-    var sadnessVal = data['sadness'];
-    var sadnessHeight = sadnessVal * 200;
-
-    sadnessElem.css('height', sadnessHeight);
-    sadnessElem.css('width', '100%');
-
-    // fear
-    var fearElem = $(elem).find('.fear');
-    var fearVal = data['fear'];
-    var fearHeight = fearVal * 200;
-
-    fearElem.css('height', fearHeight);
-    fearElem.css('width', '100%');
-
-    // joy
-    var joyElem = $(elem).find('.joy');
-    var joyVal = data['joy'];
-    var joyHeight = joyVal * 200;
-
-    joyElem.css('height', joyHeight);
-    joyElem.css('width', '100%');
-
-    // disgust
-    var disgustElem = $(elem).find('.disgust');
-    var disgustVal = data['disgust'];
-    var disgustHeight = disgustVal * 200;
-
-    disgustElem.css('height', disgustHeight);
-    disgustElem.css('width', '100%');
-
-
-    // example: {anger: 0.717459, disgust: 0.537376,
-    // fear: 0.014419, joy: 0.000235, sadness: 0.001106}
-    // convert emotion data to color
-    // set elem color to given color
+    $(elem).css('height', '200px');
+    $(elem).css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyVal + '%, ' + disgustColor + ' ' + disgustVal + '%, ' + fearColor + ' ' + fearVal + '%, ' + sadnessColor + ' ' + sadnessVal + '%, ' + angerColor + ' ' + angerVal + '%)');
 }
 
 function callAlchemy(elem, url) {
