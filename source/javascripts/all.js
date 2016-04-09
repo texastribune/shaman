@@ -61,7 +61,7 @@ function fillEmotionData(elem, data) {
     var gradientElem = $(elem).find('.gradient');
     var overallElem = $(elem).find('.story-emotion-overall');
 
-    overallElem.html('<h3>Story Mood</h3><div class="' + highest + '"><p>' + highest + '</p></div>');
+    overallElem.html('<h3 style="width:100%;">Story Mood</h3><div style="width: 50%;"><img style="width:100px;" src="/images/News-Shaman-' + highest + '.png"></div><div style="width: 50%;" class="' + highest + '"><p>' + highest + '</p></div>');
 
     $('<h3>Story Aura</h3>').insertBefore(gradientElem);
     gradientElem.css('height', '100px');
