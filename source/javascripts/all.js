@@ -7,6 +7,55 @@ function fillEmbedData(elem, data) {
 }
 
 function fillEmotionData(elem, data) {
+    var fearColor = '#df7a96';
+    var joyColor = '#fff65a';
+    var sadnessColor = '#095b9d';
+    var angerColor = '#f13a07';
+    var disgustColor = '#7dbc40';
+
+    console.log(elem, data);
+    var highest = 'anger';
+
+    if (data['disgust'] > highest) {
+      highest = 'disgust';
+    }
+
+    if (data['fear'] > highest) {
+      highest = 'fear';
+    }
+
+    if (data['joy'] > highest) {
+      highest = 'joy';
+    }
+
+    if (data['sadness'] > highest) {
+      highest = 'sadness';
+    }
+
+    if (highest == 'anger') {
+      console.log('hello');
+      elem.css('background-color', angerColor);
+    }
+
+    if (highest == 'fear') {
+      elem.css('background-color', fearColor);
+    }
+
+    if (highest == 'sadness') {
+      elem.css('background-color', sadnessColor);
+    }
+
+    if (highest == 'anger') {
+      elem.css('background-color', angerColor);
+    }
+
+    if (highest == 'disgust') {
+      elem.css('background-color', disgustColor);
+    }
+
+
+    // example: {anger: 0.717459, disgust: 0.537376,
+    // fear: 0.014419, joy: 0.000235, sadness: 0.001106}
     // convert emotion data to color
     // set elem color to given color
 }
