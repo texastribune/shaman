@@ -59,6 +59,27 @@ function populateEmbedOnInputChange() {
     callAlchemy($(this).nextAll('.story-emotions'), url);
 }
 
+function addInputLine() {
+    $(this).prev().append(
+        '<div class="story-form">'+
+            '<label>Story Url</label>'+
+            '<input type="text" name="url0" placeholder="Paste here" class="urlinput"><br />'+
+            '<div class="story-embed">'+
+                '<div class="headline-embed"></div>'+
+                '<div class="image-embed"></div>'+
+                '<div class="lede-embed"></div>'+
+            '</div>'+
+            '<div class="story-emotions">'+
+              '<div class="anger"></div>'+
+              '<div class="fear"></div>'+
+              '<div class="disgust"></div>'+
+              '<div class="sadness"></div>'+
+              '<div class="joy"></div>'+
+            '</div>'+
+        '</div>');
+}
+
 $(document).ready(function() {
     $('.urlinput').on('change', populateEmbedOnInputChange)
+    $('#btn-add-url').on('click', addInputLine)
 })
