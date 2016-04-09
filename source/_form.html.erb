@@ -1,7 +1,7 @@
 <form>
     <% 4.times do |i| %>
         <div class="story-form">
-            <label>Story Url</label>
+            <label>Story Url</label><br />
             <input type="text" name="url<%= i %>" placeholder="Paste here" class="urlinput"><br />
             <div class="story-embed">
                 <div class="headline-embed"></div>
@@ -9,14 +9,9 @@
                 <div class="lede-embed"></div>
             </div>
             <div class="story-emotions">
-              <div class="anger"></div>
-              <div class="fear"></div>
-              <div class="disgust"></div>
-              <div class="sadness"></div>
-              <div class="joy"></div>
             </div>
+            <div class="story-emotion-overall"></div>
         </div>
     <% end %>
     <button type="button" id="btn-add-url">Add another</button><br />
-    <input type="submit" value="Feel the mood">
 </form>
