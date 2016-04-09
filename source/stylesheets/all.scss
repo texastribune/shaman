@@ -51,7 +51,7 @@ button {
     padding: 1em;
   }
   .shaman-wrapper {
-    @include span-columns(6);
+    @include span-columns(5);
     padding: 1em;
     img {
       width: 400px;
@@ -59,8 +59,22 @@ button {
   }
 }
 
+.outer-container {
+  @include outer-container;
+  background-color: #f8f7f5;
+}
+
 .emotion-series {
-  clear: both;
+  @include span-columns(6);
+}
+.shaman-guy {
+  @include span-columns(5);
+  img {
+    width: 200px;
+  }
+}
+
+.emotion-series {
   div {
     height: 200px;
     text-align: center;

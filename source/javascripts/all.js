@@ -164,6 +164,8 @@ function updateOverallMood() {
 
     $('.emotion-series').html('<h2>Overall Series Mood</h2><div class="' + highest + '"><p>' + highest + '</p></div>');
 
+    $('<div class="shaman-guy"><img src="/images/News-Shaman-' + highest + '.png"></div>').insertAfter('.emotion-series');
+
     var totalEmotions = angerTotal + sadnessTotal + fearTotal + joyTotal + disgustTotal;
 
     var emotionDiff = 100 - totalEmotions;
