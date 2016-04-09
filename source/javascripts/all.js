@@ -54,6 +54,7 @@ function fillEmotionData(elem, data) {
     $('<h3>Story Feeling Breakdown</h3>').insertBefore(gradientElem);
     gradientElem.css('height', '100px');
     gradientElem.css('background-image', 'linear-gradient(to right, ' + joyColor + ' ' + joyVal + '%, ' + disgustColor + ' ' + disgustVal + '%, ' + fearColor + ' ' + fearVal + '%, ' + sadnessColor + ' ' + sadnessVal + '%, ' + angerColor + ' ' + angerVal + '%)');
+    $('<div class="emotion-labels"><div class="joy"></div><p>JOY</p></div><div class="emotion-labels"><div class="fear"></div><p>FEAR</p></div><div class="emotion-labels"><div class="sadness"></div><p>SADNESS</p></div><div class="emotion-labels"><div class="anger"></div><p>ANGER</p></div><div class="emotion-labels"><div class="disgust"></div><p>DISGUST</p></div>').insertAfter(gradientElem);
 
     updateOverallMood();
 }

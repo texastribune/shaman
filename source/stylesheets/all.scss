@@ -84,6 +84,20 @@ form {
   }
 }
 
+.emotion-labels {
+  float: left;
+  margin: 0.5em;
+  .fear, .anger, .disgust, .sadness, .joy {
+    float: left;
+    width: 10px;
+    height: 10px;
+  }
+  p {
+    float: left;
+    margin: 0;
+  }
+}
+
 .anger {
   background-color: $anger;
 }
