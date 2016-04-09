@@ -1,0 +1,15 @@
+<form>
+    <% 4.times do |i| %>
+        <div class="story-form">
+            <input type="text" name="url<%= i %>" class="urlinput"><br />
+            <div class="story-embed">
+                <div class="headline-embed"></div>
+                <div class="image-embed"></div>
+                <div class="lede-embed"></div>
+            </div>
+            <div class="story-emotions">
+            </div>
+        </div>
+    <% end %>
+    <input type="submit" value="Start your journey">
+</form>
